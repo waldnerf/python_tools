@@ -23,7 +23,7 @@ def processDataset(src_files, dst_file, calc):
     for src_file in src_files[1:]:
         src_file_b = src_file
         outfile  = os.path.join(dst_dir, os.path.basename(src_file_b).split('.tif')[0]+'_tempfile.tif')
-        gdalcalc = 'gdal_calc.py -A '+ src_file_a + ' -B '+ src_file_b + ' --outfile='+outfile+' --calc="'+calc+'" --co="COMPRESS=LZW" --co="TILED=YES" --overwrite --NoDataValue=0'                 
+        gdalcalc = 'gdal_calc.py -A '+ src_file_a + ' -B '+ src_file_b + ' --outfile='+outfile+' --calc="'+calc+'" --co="COMPRESS=LZW" --co="TILED=YES" --overwrite'                 
         os.system(gdalcalc)   
 
         if '_tempfile.tif' in src_file_a:
